@@ -1,17 +1,18 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20%;
+  display: flex;
+  background-color: #FEFEFF;
+  gap: 30px;
+}
 
-body{
-    font-family: Arial, sans-serif;
-    margin: 20%;
-    display: flex;
-    background-color: #FEFEFF;
-    gap: 30px;
+.sidebar {
+  background-color: #173953;
+  color: white;
+  width: 200px;
+  padding: 15px;
 }
-.sidebar{
-    background-color: #173953;
-    color : white;
-    width: 200px;
-    padding: 15px;
-}
+
 .daire {
   width: 180px;
   height: 220px;
@@ -21,9 +22,26 @@ body{
 }
 
 .main {
-    margin-right: 550px;
-    background-color: #FEFEFF;
+  margin-right: 550px;
+  background-color: #FEFEFF;
 }
-.contact {
-    margin: 10px;
+
+.contact, .education-entry, .skill-entry, .language-entry, .experience-entry {
+  margin: 10px 0;
+}
+
+button {
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  width: 80%;
+  margin-top: 5px;
+  padding: 4px;
+}
+
+hr {
+  width: 90%;
+  margin: auto;
 }
