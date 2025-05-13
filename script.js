@@ -1,4 +1,3 @@
-
 const contactInfo = [
   '1234567890',
   'gmailş.com',
@@ -12,13 +11,19 @@ const educationData = [
 
 const skillsData = ['HTML', 'CSS', 'JavaScript'];
 const languagesData = ['English', 'Spanish'];
+
 function renderContactInfo() {
   const container = document.getElementById('contact-section');
   container.innerHTML = '';
   contactInfo.forEach(info => {
-    const p = document.createElement('p');
-    p.textContent = info;
-    container.appendChild(p);
+    const div = document.createElement('div');
+    div.className = 'contact-entry';
+    div.innerHTML = `
+      <span contenteditable="true">${info}</span>
+      <button onclick="this.parentElement.remove()">×</button>
+      <button onclick="saveEditableContent(this)">Save</button>
+    `;
+    container.appendChild(div);
   });
 }
 
@@ -153,11 +158,33 @@ function toggleDropdown(id) {
   section.style.display = section.style.display === 'none' ? 'block' : 'none';
 }
 
+// ✅ PROFILE bölməsi redaktə oluna bilən
+function renderProfileSection() {
+  const container = document.querySelector('.section:nth-of-type(1) p');
+  const text = container.textContent.trim();
+  container.innerHTML = `
+    <span contenteditable="true">${text}</span>
+    <button onclick="saveEditableContent(this)">Save</button>
+  `;
+}
+
+// ✅ REFERENCE bölməsi redaktə oluna bilən
+function renderReferenceSection() {
+  const container = document.querySelector('.section:nth-of-type(3) p');
+  const text = container.textContent.trim();
+  container.innerHTML = `
+    <span contenteditable="true">${text}</span>
+    <button onclick="saveEditableContent(this)">Save</button>
+  `;
+}
+
 window.onload = function () {
   renderContactInfo();
   renderEducation();
   renderSkills();
   renderLanguages();
+  renderProfileSection();
+  renderReferenceSection();
 
   document.getElementById('add-education').onclick = addEducation;
   document.getElementById('add-experience').onclick = addExperience;
